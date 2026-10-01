@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adhérer à la FEMAS Hauts-de-France</title>
+<meta name="robots" content="noindex">
+<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<style>
+  :root { --teal:#5FA8A8; --vert:#63BEA6; --rose:#E6177A; --bleu:#2E3A87; --texte:#1f2a37; --gris:#f4f8f8; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--texte); background:#fff; }
+  header { background:var(--gris); padding:24px 16px; text-align:center; border-bottom:4px solid var(--teal); }
+  header img { height:64px; }
+  header h1 { margin:12px 0 4px; font-size:1.6rem; color:var(--bleu); }
+  header p { margin:0; color:#4b5563; }
+  main { max-width:1100px; margin:0 auto; padding:24px 16px 48px; }
+  h2 { text-align:center; color:var(--teal); margin:8px 0 16px; font-size:1.3rem; }
+  .profils { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-bottom:28px; }
+  .profil { display:block; text-decoration:none; color:var(--texte); background:#fff; border:2px solid #d7e6e6; border-radius:12px; padding:14px 16px; transition:.15s; }
+  .profil:hover { border-color:var(--teal); }
+  .profil.actif { border-color:var(--rose); background:#fff4f9; }
+  .profil strong { display:block; font-size:1rem; }
+  .profil span { display:block; margin-top:4px; font-size:1.25rem; font-weight:700; color:var(--rose); }
+  .grille { display:none; }
+  .grille.visible { display:block; }
+  .consigne { text-align:center; background:var(--gris); border-radius:12px; padding:14px 16px; margin:0 0 8px; }
+  .aide { margin-top:32px; font-size:.95rem; color:#4b5563; text-align:center; line-height:1.5; }
+  .aide a { color:var(--rose); }
+  .retour { display:inline-block; margin-top:12px; padding:10px 18px; border-radius:999px; background:var(--teal); color:#fff; text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body>
+<header>
+  <img src="https://avecsante.fr/femas-hdf/wp-content/uploads/sites/6/2025/12/Logo-FEMAS@1000.png" alt="FEMAS Hauts-de-France">
+  <h1>Adhérer à la FEMAS Hauts-de-France</h1>
+  <p>Barème des cotisations 2026 – paiement sécurisé par Stripe (carte bancaire ou virement, sans frais)</p>
+</header>
+<main>
+  <h2>1. Choisissez votre situation</h2>
+  <nav class="profils">
+    <a class="profil" href="#msp-aci-plus-60000" data-grille="msp"><strong>MSP ayant signé l'ACI, percevant plus de 60 000 €</strong><span>700 €</span></a>
+    <a class="profil" href="#msp-aci-moins-60000" data-grille="msp"><strong>MSP ayant signé l'ACI, percevant moins de 60 000 €</strong><span>600 €</span></a>
+    <a class="profil" href="#msp-projet-valide" data-grille="msp"><strong>MSP avec projet de santé validé par l'ARS, sans signature ACI</strong><span>300 €</span></a>
+    <a class="profil" href="#msp-en-projet" data-grille="projet"><strong>MSP en projet</strong><span>200 €</span></a>
+    <a class="profil" href="#cpts" data-grille="autres"><strong>CPTS</strong><span>300 €</span></a>
+    <a class="profil" href="#professionnel-seul" data-grille="autres"><strong>Professionnel de santé exerçant seul</strong><span>100 €</span></a>
+  </nav>
+
+  <h2 id="etape2">2. Cliquez sur « M'abonner » sous votre formule</h2>
+  <p class="consigne" id="consigne">Sélectionnez d'abord votre situation ci-dessus.</p>
+
+  <section class="grille" id="grille-msp">
+    <stripe-pricing-table pricing-table-id="prctbl_1MPSqSBm6DeJbrMKVivmzHJR"
+      publishable-key="pk_live_51MHuNKBm6DeJbrMKuM2eLDQ1xOfen3KJlSCKqQVr3GLOxDe80yinUR2HkraQX5fk0ctukB7Rf7WvQPFeUvYEBDUe00eeomNrQS">
+    </stripe-pricing-table>
+  </section>
+  <section class="grille" id="grille-projet">
+    <stripe-pricing-table pricing-table-id="prctbl_1Ml6zyBm6DeJbrMK0R1pD1xU"
+      publishable-key="pk_live_51MHuNKBm6DeJbrMKuM2eLDQ1xOfen3KJlSCKqQVr3GLOxDe80yinUR2HkraQX5fk0ctukB7Rf7WvQPFeUvYEBDUe00eeomNrQS">
+    </stripe-pricing-table>
+  </section>
+  <section class="grille" id="grille-autres">
+    <stripe-pricing-table pricing-table-id="prctbl_1NIWC3Bm6DeJbrMKUyV1mgto"
+      publishable-key="pk_live_51MHuNKBm6DeJbrMKuM2eLDQ1xOfen3KJlSCKqQVr3GLOxDe80yinUR2HkraQX5fk0ctukB7Rf7WvQPFeUvYEBDUe00eeomNrQS">
+    </stripe-pricing-table>
+  </section>
+
+  <div class="aide">
+    Lors de l'inscription, indiquez la raison sociale de votre structure (champ « Nom ») et son numéro FINESS.<br>
+    Vous préférez adhérer par chèque ou avez une question ? Écrivez-nous : <a href="mailto:communication@femas-hdf.fr">communication@femas-hdf.fr</a><br>
+    <a class="retour" href="https://avecsante.fr/femas-hdf/adherer-a-la-fmps-cvl/">← Retour au site de la FEMAS HDF</a>
+  </div>
+</main>
+<script>
+  var formules = {
+    "msp-aci-plus-60000": ["msp", "MSP sous ACI (2) – 700 €"],
+    "msp-aci-moins-60000": ["msp", "MSP sous ACI (1) – 600 €"],
+    "msp-projet-valide": ["msp", "MSP constituée – 300 €"],
+    "msp-en-projet": ["projet", "Structure en projet – 200 €"],
+    "cpts": ["autres", "Adhésion CPTS – 300 €"],
+    "professionnel-seul": ["autres", "Adhésion Individuelle – 100 €"]
+  };
+  function afficher() {
+    var id = location.hash.replace("#", "");
+    var f = formules[id];
+    document.querySelectorAll(".profil").forEach(function (a) {
+      a.classList.toggle("actif", a.getAttribute("href") === "#" + id);
+    });
+    document.querySelectorAll(".grille").forEach(function (g) {
+      g.classList.toggle("visible", !!f && g.id === "grille-" + f[0]);
+    });
+    document.getElementById("consigne").innerHTML = f
+      ? "Votre formule : <strong>" + f[1] + "</strong>"
+      : "Sélectionnez d'abord votre situation ci-dessus.";
+    if (f) document.getElementById("etape2").scrollIntoView({ behavior: "smooth" });
+  }
+  window.addEventListener("hashchange", afficher);
+  afficher();
+</script>
+</body>
+</html>
